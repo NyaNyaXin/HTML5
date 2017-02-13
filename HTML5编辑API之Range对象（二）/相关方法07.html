@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相关方法</title>
+</head>
+<body>
+<!--
+方法介绍：
+    insertNode
+    insertNode() 方法在范围的开头插入一个节点。
+    该方法将把指定的节点（和它的所有子孙节点）插入文档范围的开始点。
+    当该方法返回时，当前范围将包括新插入的节点。如果 newNode 已经是文档的一部分，那么它将被从当前位置
+    删除，然后重新插入范围的开始点。如果 newNode 是 DocumentFragment 节点，那么插入的不是它自身，
+    而是它的子孙节点，按顺序插入范围的开始点。
+    如果包含当前范围的开始点的节点是 Text 节点，那么在发生插入操作前，它将被分割成两个相邻的节点。
+    如果 newNode 是 Text 节点，在插入文档后，它不会与任何相邻的 Text 节点合并。要合并相邻的节点，
+    需要调用 Node.normalize() 方法。
+    compareBoundaryPoints
+    compareBoundaryPoints() 方法比较两个范围的位置。
+    该方法将比较当前范围的边界点和指定的 sourceRange 的边界点，并返回一个值，声明它们在源文档中的相对位置。
+    参数 how 指定了比较两个范围的哪个边界点。该参数的合法值和它们的含义如下：
+    Range.START_TO_START - 比较两个 Range 节点的开始点
+    Range.END_TO_END - 比较两个 Range 节点的结束点
+    Range.START_TO_END - 用 sourceRange 的开始点与当前范围的结束点比较
+    Range.END_TO_START - 用 sourceRange 的结束点与当前范围的开始点比较
+    该方法的返回值是一个数字，声明了当前范围相对于 sourceRange 的位置。因此，您可能认为，首先需要用参数 how
+    的范围常量指定当前范围的边界点，然后再用它指定 sourceRange 的边界点。但事实上，常量 Range.START_TO_END 指定与
+    当前范围的 end 点和 sourceRange 的 start 点进行比较。同样，常量 Range.END_TO_START 指定比较当前范围的 start
+    点和指定范围的 end 点。
+    -->
+    <script>
+        function moveButton() {
+            var btn = document.getElementById("button");
+            var selection = document.getSelection();
+            if (selection.rangeCount>0){
+                var range = selection.getRangeAt(0);
+                range.insertNode(btn);
+            }
+        }
+    </script>
+    <div onmouseup="moveButton()" style="width: 400px;background-color: darkslateblue">
+        撒哇哇哇哇哇哇哇哇低卡撒哇哇哇哇哇哇哇哇低卡撒哇哇哇哇哇哇哇哇低卡撒哇哇哇哇哇哇哇哇低卡
+    </div>
+    <button id="button">button</button>
+</body>
+</html>

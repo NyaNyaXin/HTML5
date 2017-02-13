@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相关方法</title>
+</head>
+<body>
+<!--
+方法介绍：
+    setStart
+    setStart() 方法设置范围的开始点。
+    该方法将把范围的开始点设置为 startContainer 属性和 startOffset 属性指定的值。
+    setEnd
+    setEnd() 方法设置范围的结束点。
+    该方法将把范围的结束点设置为 endContainer 属性和 endOffset 属性指定的值。
+    setStartBefore
+    setStartBefore() 方法在指定的节点之前开始范围。
+    该方法将把范围的开始点设置为指定的 refNode 节点之前的位置。
+    setStartAfter
+    setStartAfter() 方法在指定的节点后开始范围。
+    该方法将把范围的开始点设置为紧邻指定的 refNode 节点的位置。
+    setEndBefore
+    setEndBefore() 方法在指定的节点之前结束范围。
+    该方法将把范围的结束点设置为指定的 refNode 节点之前的位置。
+    setEndBeforeAfter
+    setEndAfter() 方法在指定的节点后结束范围。
+    该方法将把范围的结束点设置为紧邻指定的 refNode 节点的位置。
+    -->
+    <script>
+        function deleteRow() {
+            var table = document.getElementById("mytable");
+            if(table.rows.length>0){
+                var row = table.rows[0];
+                var rangeObj = document.createRange();
+                rangeObj.setStartBefore(row);
+                rangeObj.setEndAfter(row);
+                rangeObj.deleteContents();
+            }
+        }
+    </script>
+    <table id="mytable" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>内容1</td>
+            <td>内容2</td>
+        </tr>
+        <tr>
+            <td>内容3</td>
+            <td>内容4</td>
+        </tr>
+    </table>
+    <button onclick="deleteRow()">删除第一行</button>
+</body>
+</html>

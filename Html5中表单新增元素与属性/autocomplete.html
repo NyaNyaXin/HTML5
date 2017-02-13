@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本框的autocomplete属性</title>
+</head>
+<body>
+    <!--
+        帮助输入所用的自动完成功能，是一个即节省时间又十分方便的功能。在HTML之前，因为谁都可以看见输入的
+        值，所以在安全方面存在缺陷，只要使用AutoComplete属性，安全方面也可以得到很好的控制
+    -->
+    <form>
+        <input type="text" name="gretting" autocomplete="off" list="greetings"><!--On/Off-->
+        <datalist id="greetings" style="display: none">
+            <option value="aaaaa">aaaaa</option>
+            <option value="bbbbb">bbbbb</option>
+            <option value="ccccc">ccccc</option>
+        </datalist>
+    </form>
+</body>
+</html>

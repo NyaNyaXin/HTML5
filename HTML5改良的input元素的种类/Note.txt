@@ -1,0 +1,3 @@
+Html5增加与改良的input元素
+1、url类型、email类型、date类型、time类型、datetime类型、datetime-local类型、month类型、
+week类型、number类型、range类型、search类型、Tel类型、color类型

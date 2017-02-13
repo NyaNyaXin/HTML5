@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--progress
+        代表任务的完成进度
+        -->
+    <script>
+        function btn() {
+//            for(var i=0;i<=100;i++){
+//                setTimeout(function () {
+//                    update(i);
+//                },5000)
+//            }
+            var i=0;
+            function thred_one() {
+                if(i<=100){
+                    i++;
+                    update(i);
+                }
+            }
+            setInterval(thred_one,1);
+            
+        }
+        function update(newValue) {
+            var progressBar = document.getElementById("p");
+            progressBar.value = newValue;
+            progressBar.getElementsByTagName("span")[0].textContent = newValue;
+        }
+    </script>
+    <section>
+        <h2>progress元素的使用</h2>
+        <p>完成的百分比<progress id="p" max="100" ><span>0</span>%</progress></p>
+        <input type="button" onclick="btn()" value="click">
+    </section>
+
+    <!--
+        meter元素：表示规定范围内的数值量
+    -->
+    <meter value="40" min="0" max="100" low="10" high="90" optimum="80"></meter>
+    <meter>40/100</meter>
+</body>
+</html>

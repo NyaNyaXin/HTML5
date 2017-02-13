@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相关方法</title>
+</head>
+<body>
+<!--
+方法介绍：
+    setStart
+    setStart() 方法设置范围的开始点。
+    该方法将把范围的开始点设置为 startContainer 属性和 startOffset 属性指定的值。
+    setEnd
+    setEnd() 方法设置范围的结束点。
+    该方法将把范围的结束点设置为 endContainer 属性和 endOffset 属性指定的值。
+    setStartBefore
+    setStartBefore() 方法在指定的节点之前开始范围。
+    该方法将把范围的开始点设置为指定的 refNode 节点之前的位置。
+    setStartAfter
+    setStartAfter() 方法在指定的节点后开始范围。
+    该方法将把范围的开始点设置为紧邻指定的 refNode 节点的位置。
+    setEndBefore
+    setEndBefore() 方法在指定的节点之前结束范围。
+    该方法将把范围的结束点设置为指定的 refNode 节点之前的位置。
+    setEndBeforeAfter
+    setEndAfter() 方法在指定的节点后结束范围。
+    该方法将把范围的结束点设置为紧邻指定的 refNode 节点的位置。
+    -->
+    <script>
+        function deleteChar() {
+            var div = document.getElementById("myDiv");
+            var textNode = div.firstChild;
+            var rangeObj = document.createRange();
+            rangeObj.setStart(textNode,1);
+            rangeObj.setEnd(textNode,4);
+            rangeObj.deleteContents();
+        }
+        
+    </script>
+    <div id="myDiv" style="background-color: chocolate; width: 300px;height: 50px">
+        这是文字是用来删除的
+    </div>
+    <button onclick="deleteChar()">删除文字</button>
+</body>
+</html>

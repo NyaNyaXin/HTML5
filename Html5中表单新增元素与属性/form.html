@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form属性</title>
+</head>
+<body>
+    <!--
+        在HTML4中，表单内的从属元素必须书写在表单内部，而在HTML5中，可以把他们书写在页面
+        中的任何地方，然后为该元素指定一个form属性，属性值为该表单的id，这样就可以声明该
+        元素从属于指定表单了。
+     -->
+    <form id="testform">
+        <input type="text">
+        <textarea form="testform"></textarea>
+    </form>
+</body>
+</html>

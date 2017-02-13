@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本框的SelectionDirection属性</title>
+</head>
+<body>
+    <!--
+        真对input元素与textarea元素，HTML5增加了SelectionDirection属性。当用户在这两个元素中用
+        鼠标选取部分文字时，可以使用该属性来获取选取方向。当用户正向选取文字时，该属性值为“forward”，
+        当用户反向选取文字时，该属性值为“backward”。当用户没有选取任何文字时，该属性值为“forward”。
+    -->
+    <script>
+        function AD() {
+            var control = document.forms[0]['text'];
+            var Direction = control.selectionDirection;
+            alert(Direction);
+        }
+    </script>
+    <form>
+        <input type="text" name="text">
+        <input type="button" value="点击" onclick="AD()">
+    </form>
+</body>
+</html>

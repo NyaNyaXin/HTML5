@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相关方法</title>
+</head>
+<body>
+<!--
+方法介绍：
+   collapse
+   collapse() 方法是范围的边界点重合。
+   该方法将设置范围的一个边界点，使它与另一个边界点相同。要修改的边界点由参数 toStart 指定。该方法返回后，
+   范围将“折叠”，即表示文档中的一个点，没有内容。当范围被折叠后，它的 collapsed 属性将被设置为 true。
+   detach
+   detach() 方法释放一个 Range 对象。
+   DOM 实现将跟踪为文档创建的所有 Range 对象，因为在修改文档时，它们需要改变范围的边界点。
+   当确认 Range 对象不再被使用时，可以调用 detach() 方法，通知实现不必再跟踪该范围。
+   注意：一旦调用了 Range 对象的 detach() 方法，再使用 Range 对象，就会抛出异常。
+   对 detach() 方法的调用不是必需的，但在修改了文档的情况下，调用它可以提高性能。
+   Range 对象不会被立刻回收。
+    -->
+    <script>
+        var rangeObj = document.createRange();
+        function selectRangeContents() {
+            var div = document.getElementById("div");
+            rangeObj.selectNode(div);
+            rangeObj.detach();
+        }
+        function unselect() {
+            rangeObj.collapse(false);
+        }
+        function show() {
+            alert(rangeObj.toString());
+        }
+    </script>
+    <div id="div" style="background-color: chocolate; width: 300px;height: 50px;">
+        元素这个的内容见那个
+    </div>
+    <button onclick="selectRangeContents()">选择元素</button>
+    <button onclick="unselect()">取消元素</button>
+    <button onclick="show()">显示Range内容</button>
+</body>
+</html>

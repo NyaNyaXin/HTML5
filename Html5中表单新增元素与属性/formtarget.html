@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formtarget</title>
+</head>
+<body>
+    <!--
+        在HTML4中，表单元素具有一个target属性，该属性用于指定在何处打开表单提交后所需要加载的
+        页面。
+        在HTML5中，可以对多个提交按钮分别使用formtarget属性来指定提交后在何处打开所需加载的页
+        面。
+    -->
+    <form id="testform">
+        <input type="submit" name="s1" value="v1" formtarget="_blank" formaction="http://localhost:8080/Hello01/test01.jsp"> <!--新页面-->
+        <input type="submit" name="s2" value="v2" formtarget="_self" formaction="http://localhost:8080/Hello01/test02.jsp"> <!--当前页面-->
+        <input type="submit" name="s3" value="v3" formtarget="_parent" formaction="http://localhost:8080/Hello01/test03.jsp"><!--frame的父框架-->
+        <input type="submit" name="s3" value="v3" formtarget="_top" formaction="http://localhost:8080/Hello01/test03.jsp"><!--当前窗口中-->
+        <input type="submit" name="s3" value="v3" formtarget="framename" formaction="http://localhost:8080/Hello01/test03.jsp"><!--指定框架中-->
+    </form>
+</body>
+</html>

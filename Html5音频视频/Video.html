@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频播放</title>
+</head>
+<body>
+    <button onclick="cc()">播放/暂停</button>
+    <button onclick="Big()">放大</button>
+    <button onclick="Small()">缩小</button>
+    <video  id="video">
+        不支持
+        <source src="1.mp4">
+        <source src="1.ogg">
+    </video>
+    <script>
+        var a = document.getElementById("video");
+        function cc() {
+            if(a.paused){
+                a.play()
+            }else {
+                a.pause();
+            }
+        }
+        function Big() {
+            a.width =1080;
+            a.height = 1920;
+
+        }
+        function Small() {
+            a.width =300;
+            a.height = 300;
+        }
+    </script>
+</body>
+</html>

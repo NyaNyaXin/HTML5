@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formaction属性</title>
+</head>
+<body>
+    <!--
+        在HTML4中，一个表单内的所有元素只能通过表单的action属性被统一提交到另一个页面，
+        而在HTML5中可以为所有的提交按钮，增加不同的formaction属性，使单机不同的按钮时
+        可以将表单提交到不同的页面
+    -->
+    <form id="testform">
+        <input type="submit" name="s1" value="v1" formaction="http://localhost:8080/Hello01/test01.jsp">
+        <input type="submit" name="s2" value="v2" formaction="http://localhost:8080/Hello01/test02.jsp">
+        <input type="submit" name="s3" value="v3" formaction="http://localhost:8080/Hello01/test03.jsp">
+    </form>
+</body>
+</html>

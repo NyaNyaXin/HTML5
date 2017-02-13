@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相关方法</title>
+</head>
+<body>
+<!--
+方法介绍：
+    SelectNode
+    selectNode() 方法把范围边界设置为一个节点。
+    该方法将把范围的内容设置为指定的 refNode 节点。也就是说，“选中”那个节点和它的子孙节点。
+    SelectNodeContents
+    selectNodeContents() 方法把范围边界设置为一个节点的子节点。
+    该方法将设置范围的边界点，使该范围包含 refNode 的子节点。
+    deleteContents
+    deleteContents() 方法删除文档的区域。
+    该方法将删除当前范围表示的所有文档内容。当该方法返回时，当前范围的边界点将重合。
+    注意：这种删除操作可以生成相邻的 Text 节点，调用 Node.normalize() 方法可以合并这些节点。
+    -->
+    <script>
+        function deleteRangeContent(onlyContent) {
+            var div = document.getElementById("div");
+            var rangeObj = document.createRange();
+            if(onlyContent){
+                rangeObj.selectNodeContents(div);
+                rangeObj.deleteContents();
+            }else{
+                rangeObj.selectNode(div);
+                rangeObj.deleteContents();
+            }
+        }
+    </script>
+    <div id="div" style="background-color: chocolate; width: 300px;height: 50px">
+        这是内容
+    </div>
+    <button onclick="deleteRangeContent(true)">删除内容</button>
+    <button onclick="deleteRangeContent(false)">删除元素</button>
+</body>
+</html>

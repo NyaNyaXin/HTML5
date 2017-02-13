@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相关方法</title>
+</head>
+<body>
+<!--
+方法介绍：
+    cloneRange
+    创建一个新的 Range 对象，表示与当前的 Range 对象相同的文档区域。
+    cloneRange() 方法复制该范围。
+    cloneContents
+    cloneContents() 方法把范围（Range）的内容复制到一个 DocumentFragment 对象。
+    该方法将复制当前范围的内容，把它存放在一个 DocumentFragment 对象中，返回该对象。
+    extractContents
+    extractContents() 方法删除文档内容，并以 DocumentFragment 对象的形式返回它。
+    该方法将删除文档的指定范围，并返回包含被删除内容（或被删除的内容的副本）的 DocumentFragment 节点。
+    当返回该方法时，范围将折叠，文档中可能出现相邻的 Text 节点（用 Node.normalize() 可以合并）。
+    -->
+    <script>
+        function moveContent() {
+            var srcDiv = document.getElementById("srcDiv");
+            var srcDiv2 = document.getElementById("srcDiv2");
+            var rangeObj = document.createRange();
+            rangeObj.selectNodeContents(srcDiv);
+            var doc = rangeObj.extractContents();
+            srcDiv2.appendChild(doc);
+
+        }
+    </script>
+    <div id="srcDiv" style="background-color: crimson;width: 200px; height: 50px">
+        hahaha
+    </div>
+    <div id="srcDiv2" style="background-color:darkred;width: 200px; height: 50px">
+
+    </div>
+    <button onclick="moveContent()">move</button>
+</body>
+</html>
