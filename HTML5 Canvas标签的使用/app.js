@@ -5,7 +5,8 @@ var CANVAS_WIDTH = 500 , CANVAS_HEIGHT = 500;
 var mycanvas , context;
 window.onload = function () {
     createCanvas();
-    drawRect();
+    //drawRect();
+    drawImage();
 }
     function createCanvas() {
         document.body.innerHTML = "<canvas id=\"mycanvas\" " +
@@ -21,4 +22,12 @@ window.onload = function () {
         //context.translate(200,200); //设置图形的移动位置
         context.scale(2,0.5); //缩放
         context.fillRect(0,0,200,200);//设置绘制图形的位置大小等
+    }
+
+    function drawImage() {
+        var img = new Image();
+        img.onload = function () {
+            context.drawImage(img,0,0);//绘制图片
+        }
+        img.src = "1.jpg";
     }
