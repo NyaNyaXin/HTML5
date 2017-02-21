@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MoveTo LineTo</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#eeeeef";
+            context.fillRect(0,0,300,400);
+            var dx =150;
+            var dy = 150;
+            var s = 100;
+            context.beginPath();
+            context.fillStyle = "rgb(100,255,100)";
+            context.strokeStyle = "rgb(0,0,100)";
+        }
+    </script>
+</head>
+<body>
+    <!--
+        moveTo()
+        将一个新的子路径的起始点移动到(x，y)坐标。
+        lineTo()
+        使用直线连接子路径的最后的点到x,y坐标。
+    -->
+    <canvas id="canvas" width="300" height="400"></canvas>
+</body>
+</html>
