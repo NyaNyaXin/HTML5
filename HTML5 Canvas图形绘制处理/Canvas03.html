@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用图形</title>
+    <script>
+        function draw(id) {
+            var canvas = document.getElementById(id);
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#eeeeef";
+            context.fillRect(0,0,500,500);
+            image = new Image();
+            image.src = "a.jpg";
+            image.onload = function () {
+                drawImage(context,image);
+            }
+        }
+        function drawImage(context,image) {
+            context.drawImage(image,0,0,200,200);
+            context.drawImage(image,270,270,380,380,230,230,100,100);
+        }
+    </script>
+</head>
+<body onload="draw('canvas')">
+    <!--
+        CanvasRenderingContext2D.drawImage()
+        绘制指定的图片。该方法有多种格式，提供了很大的使用灵活性。
+        drawImage(image, dx, dy);
+        drawImage(image, dx, dy, dWidth, dHeight);
+        drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+        image:绘制到上下文的元素。允许任何的 canvas 图像源(CanvasImageSource)，例如：HTMLImageElement
+        ，HTMLVideoElement，或者 HTMLCanvasElement。
+        dx:目标画布的左上角在目标canvas上 X 轴的位置。
+        dy:目标画布的左上角在目标canvas上 Y 轴的位置。
+        dWidth:在目标画布上绘制图像的宽度。 允许对绘制的图像进行缩放。 如果不说明， 在绘制时图片宽度不会缩放。
+        dHeight:在目标画布上绘制图像的高度。 允许对绘制的图像进行缩放。 如果不说明， 在绘制时图片高度不会缩放。
+        sx:需要绘制到目标上下文中的，源图像的矩形选择框的左上角 X 坐标。
+        sy:需要绘制到目标上下文中的，源图像的矩形选择框的左上角 Y 坐标。
+        sWidth:需要绘制到目标上下文中的，源图像的矩形选择框的宽度。如果不说明，整个矩形从坐标的sx和sy开始，到图像的右下角结束。
+        sHeight:需要绘制到目标上下文中的，源图像的矩形选择框的高度。
+    -->
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+</html>
