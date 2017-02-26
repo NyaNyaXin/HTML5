@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas绘制镜像渐变</title>
+    <script>
+        function draw(id) {
+            var canvas = document.getElementById(id);
+            if(canvas == null){
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            var g1 = context.createRadialGradient(400,0,0,400,0,400);//绘制镜像渐变需要使用的方法
+            g1.addColorStop(0.1,"rgb(255,255,0)");
+            g1.addColorStop(0.3,"rgb(255,0,255)");
+            g1.addColorStop(1,"rgb(0,255,255)");
+            context.fillStyle = g1;
+            context.fillRect(0,0,500,500);
+
+        }
+    </script>
+</head>
+<body onload="draw('canvas')">
+    <canvas id="canvas" height="500" width="500"></canvas>
+    <!--
+        createRadialGradient(x0, y0, r0, x1, y1, r1)
+        创建一个沿着参数坐标指定的线的放射性性渐变。
+        x0开始圆形的 x 轴坐标。y0开始圆形的 y 轴坐标。r0开始圆形的半径。
+        x1结束圆形的 x 轴坐标。y1结束圆形的 y 轴坐标。r1结束圆形的半径。
+    -->
+</body>
+</html>
