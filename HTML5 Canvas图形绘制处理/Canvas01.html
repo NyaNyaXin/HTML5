@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图形组合</title>
+    <script>
+        function draw(id) {
+            var canvas = document.getElementById(id);
+            if(canvas == null){
+                return false;
+            }
+            var context = canvas.getContext("2d");
+            var oprtns = new Array("source-over","destination-over","source-in",
+                "destination-in","source-out","destination-out", "source-atop",
+                "destination-atop","lighter",
+                "darken","xor","copy");
+            i= 1;
+            context.fillStyle ="blue";
+            context.fillRect(10,10,60,60);
+            context.globalCompositeOperation = oprtns[i];
+            context.beginPath();
+            context.fillStyle="red";
+            context.arc(60,60,30,Math.PI*2,false);
+            context.fill();
+        }
+    </script>
+</head>
+<body onload="draw('canvas')">
+    <!--
+        属性globalCompositeOperation = type
+        类型包括
+        source-over (default):   这是默认设置，新图形会覆盖在原有内容之上。
+        destination-over     :   会在原有内容之下绘制新图形。
+        source-in            :   新图形会仅仅出现与原有内容重叠的部分。其它区域都变成透明的。
+        destination-in       :   原有内容中与新图形重叠的部分会被保留，其它区域都变成透明的。
+        source-out           :   结果是只有新图形中与原有内容不重叠的部分会被绘制出来。
+        destination-out      :   原有内容中与新图形不重叠的部分会被保留。
+        source-atop          :   新图形中与原有内容重叠的部分会被绘制，并覆盖于原有内容之上。
+        destination-atop     :   原有内容中与新内容重叠的部分会被保留，并会在原有内容之下绘制新图形
+        lighter              :   两图形中重叠部分作加色处理。
+        darken               :   两图形中重叠的部分作减色处理。
+        xor                  :   重叠的部分会变成透明。
+        copy                 :   只有新图形会被保留，其它都被清除掉。
+    -->
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+</html>
