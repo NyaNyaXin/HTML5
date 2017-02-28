@@ -10,7 +10,7 @@ window.onload = function () {
     stage = new createjs.Stage(canvas);
     text = new createjs.Text("HelloWord->0","20px Arial","#ff7700");
     stage.addChild(text);
-    createjs.Ticker.setFPS(30);
+    createjs.Ticker.setFPS(120);
     createjs.Ticker.addEventListener("tick",tick);
 }
 function tick(e) {
