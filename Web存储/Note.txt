@@ -1,0 +1,4 @@
+localStorage
+1、存储特点：localStorage方法存储的数据没有时间限制
+sessionStorage
+1、存储特点：sessionStorage方法针对一个session进行数据存储。当用户关闭浏览器窗口后，数据会被删除
