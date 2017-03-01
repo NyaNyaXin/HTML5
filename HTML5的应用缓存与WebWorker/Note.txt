@@ -8,3 +8,12 @@ Web应用可以进行缓存，并可在没有网络连接的情况下进行访�
    1、CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
    2、NETWORK - 在此标题下的文件需要与服务器进行连接，并且不会被缓存
    3、FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如404页面）
+
+
+1、什么时Web Worker
+web worker时运行在后台的JavaScript，独立于其他脚本，不会影响页面的性能
+2、方法
+    postMessage() - 它用于向HTML页面传回一段消息
+    terminate() - 终止web worker,并释放浏览器/计算机资源
+3、时间
+    onmessage
